@@ -60,9 +60,10 @@ public class TimelineActivity extends AppCompatActivity {
             public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
                 Log.i(TAG, "onLoadMore:" + page);
                 loadMoreData();
+
             }
         };
-
+        rvTweets.addOnScrollListener(scrollListener);
         populateHomeTimeline();
     }
 
@@ -87,7 +88,6 @@ public class TimelineActivity extends AppCompatActivity {
             }
         },tweets.get(tweets.size() - 1).id);
     }
-
 
     private void populateHomeTimeline() {
         client.getHomeTimeline(new JsonHttpResponseHandler() {
