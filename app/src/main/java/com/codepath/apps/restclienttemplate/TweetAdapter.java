@@ -70,7 +70,11 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder>{
         public void bind(Tweet tweet) {
             tvBody.setText(tweet.body);
             tvScreenName.setText(tweet.user.screenName);
-            Glide.with(context).load(tweet.user.publicImageUrl).transform(new RoundedCorners(90)).into(ivProfileImage);
+            Glide
+                    .with(context)
+                    .load(tweet.user.publicImageUrl)
+                    .transform(new RoundedCorners(30))
+                    .into(ivProfileImage);
         }
     }
 }
